@@ -1,9 +1,12 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import os 
 
+current_dir = os.path.dirname(__file__)
+model_path = os.path.join(current_dir, 'model.sav')
 st.title('Multiple Linear Regression Model Prediction')
-model = joblib.load('/Users/huanghanxian/Documents/Docs/WashU_2024Spring/ALM/assignment1/model.sav')
+model = joblib.load(model_path)
 
 def user_input():
     BMI = st.sidebar.slider('BMI', 0, 80, 25)
